@@ -1,5 +1,8 @@
 package com.yucelt.sahibindentechchallange.android.component.expandableitem
 
+/**
+ * Created by YucelTerlemezoglu on 21.09.2019.
+ */
 data class ExpandableItemViewData(
     val date: String? = null,
     val month: String? = null,

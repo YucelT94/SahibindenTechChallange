@@ -3,6 +3,9 @@ package com.yucelt.sahibindentechchallange.android.component.expandableitem
 import androidx.databinding.ObservableField
 import com.yucelt.sahibindentechchallange.android.base.basecomponent.BaseComponentViewModel
 
+/**
+ * Created by YucelTerlemezoglu on 21.09.2019.
+ */
 class ExpandableItemViewModel : BaseComponentViewModel<ExpandableItemViewData>() {
 
     val dateObservable = ObservableField<String>()
