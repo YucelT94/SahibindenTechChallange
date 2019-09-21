@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+    arrier
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yucelt.sahibindentechchallange.android.component.expandableitem.ExpandableItemViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".feature.login.presentation.LoginActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/date_section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="48sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="08" />
+
+            <TextView
+                android:id="@+id/month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/date"
+                app:layout_constraintLeft_toLeftOf="@id/date"
+                app:layout_constraintStart_toStartOf="@id/date"
+                app:layout_constraintTop_toBottomOf="@id/date"
+                tools:text="Ekim" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/barrier"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/date_section"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/order_section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/barrier"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/market_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:text="Market 1" />
+
+
+            <TextView
+                android:id="@+id/order_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="@id/market_name"
+                app:layout_constraintTop_toBottomOf="@id/market_name"
+                tools:text="Şampuan 250 ml" />
+
+            <view
+                android:id="@+id/status"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintLeft_toLeftOf="@id/order_name"
+                app:layout_constraintTop_toTopOf="@id/product_state"
+                app:layout_constraintBottom_toBottomOf="@id/product_state"
+                tools:layout_editor_absoluteY="41dp" />
+
+            <TextView
+                android:id="@+id/product_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toRightOf="@+id/status"
+                app:layout_constraintTop_toBottomOf="@id/order_name"
+                tools:text="Ekim" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <view
+            android:id="@+id/status"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintLeft_toLeftOf="@id/order_name"
+            app:layout_constraintTop_toTopOf="@id/product_state"
+            app:layout_constraintBottom_toBottomOf="@id/product_state"
+            tools:layout_editor_absoluteY="41dp" />
+
+        <TextView
+            android:id="@+id/product_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toRightOf="@+id/status"
+            app:layout_constraintTop_toBottomOf="@id/order_name"
+            tools:text="Ekim" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
