@@ -14,6 +14,7 @@ class ExpandableItemViewModel : BaseComponentViewModel<ExpandableItemViewData>()
     val orderDetailObservable = ObservableField<String>()
     val summaryPriceObservable = ObservableField<Int>()
 
+    val colorObservable = ObservableField<Int>()
     val detailViewVisibilityObservable = ObservableField<Boolean>()
 
     override fun handleInput(viewData: ExpandableItemViewData?) {

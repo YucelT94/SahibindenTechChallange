@@ -11,30 +11,30 @@ import androidx.databinding.ViewDataBinding
 /**
  * Created by YucelTerlemezoglu on 21.09.2019.
  */
-abstract class BaseViewComponent<DB : ViewDataBinding, VM : BaseComponentViewModel>(
+abstract class BaseViewComponent<DB : ViewDataBinding, VM : BaseComponentViewModel<*>>(
     context: Context,
     attributeSet: AttributeSet? = null,
     int: Int = 0
 ) : ConstraintLayout(context, attributeSet, int) {
-    var binding: DB? = null
+    var dataBinding: DB? = null
     var viewModel: VM? = null
 
     init {
-        this.a(context)
+        this.init(context)
     }
 
-    private fun a(context: Context) {
+    private fun init(context: Context) {
         if (this.isInEditMode) {
             View.inflate(context, this.provideLayoutId(), this)
         } else {
             this.viewModel = this.provideViewModel()
-            this.binding = DataBindingUtil.inflate(
+            this.dataBinding = DataBindingUtil.inflate(
                 LayoutInflater.from(context),
                 this.provideLayoutId(),
                 this,
                 true
             )
-            this.bindViewModel(this.binding)
+            this.bindViewModel(this.dataBinding)
         }
     }
 
@@ -43,5 +43,4 @@ abstract class BaseViewComponent<DB : ViewDataBinding, VM : BaseComponentViewMod
     abstract fun bindViewModel(binding: DB?)
 
     abstract fun provideLayoutId(): Int
-
 }

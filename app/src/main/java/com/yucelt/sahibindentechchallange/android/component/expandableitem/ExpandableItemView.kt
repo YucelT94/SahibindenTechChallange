@@ -23,17 +23,25 @@ fun ExpandableItemView.setData(viewData: ExpandableItemViewData?) {
  * <com.yucelt.sahibindentechchallange.android.component.expandableitem.ExpandableItemView
  *      viewData="@{viewModel.viewDataObservableField}" />
  */
-class ExpandableItemView : BaseViewComponent<ComponentExpandableItemBinding, ExpandableItemViewModel>  {
+class ExpandableItemView :
+    BaseViewComponent<ComponentExpandableItemBinding, ExpandableItemViewModel> {
 
     companion object {
         val LAYOUT_RES_ID = R.layout.component_expandable_item
     }
 
+    var eventHandler: ExpandableItemEventHandler? = null
+
+
     constructor(context: Context) : this(context, null)
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    )
 
     override fun provideLayoutId() = LAYOUT_RES_ID
 
@@ -41,5 +49,25 @@ class ExpandableItemView : BaseViewComponent<ComponentExpandableItemBinding, Exp
 
     override fun bindViewModel(binding: ComponentExpandableItemBinding?) {
         binding?.viewModel = viewModel
+        init()
+    }
+
+    private fun init() {
+        dataBinding.run {
+            //     setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
+
+            //     flowHorizontal.setOnClickListener {
+            //         val expanded = accounts.visibility != View.VISIBLE
+            //         this@ExpandableMyTotalView.viewModel.expandOrCollapse(expanded)
+
+            //         TransitionManager.beginDelayedTransition(accounts.rootView as ViewGroup, AutoTransition()
+            //             .setOrdering(TransitionSet.ORDERING_TOGETHER)
+            //             .addListener(object : TransitionListenerAdapter() {
+            //                 override fun onTransitionEnd(transition: Transition) {
+            //                     eventHandler?.onExpandedOrCollapsed(expanded)
+            //                 }
+            //             }))
+            //     }
+        }
     }
 }
