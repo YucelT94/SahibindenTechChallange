@@ -109,7 +109,7 @@
                     android:id="@+id/status"
                     android:layout_width="@dimen/margin_medium"
                     android:layout_height="@dimen/margin_medium"
-                    android:background="@{viewModel.colorObservable}"
+                    android:background="@{ContextCompat.getColor(context,viewModel.colorObservable)}"
                     app:layout_constraintLeft_toLeftOf="@id/order_name"
                     app:layout_constraintTop_toBottomOf="@id/order_name"
                     tools:background="@color/colorAccent" />
@@ -120,7 +120,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_small"
                     android:text="@{viewModel.productStateObservable}"
-                    android:textColor="@{viewModel.colorObservable}"
+                    android:textColor="@{ContextCompat.getColor(context,viewModel.colorObservable)}"
                     android:textSize="@dimen/text_small"
                     app:layout_constraintBottom_toBottomOf="@id/status"
                     app:layout_constraintLeft_toRightOf="@+id/status"

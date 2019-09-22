@@ -1,6 +1,5 @@
 package com.yucelt.sahibindentechchallange.android.component.expandableitem
 
-import android.content.Context
 import android.view.View
 import androidx.annotation.ColorRes
 import androidx.databinding.ObservableField
@@ -22,7 +21,7 @@ class ExpandableItemViewModel : BaseComponentViewModel<ExpandableItemViewData>()
     val orderDetailObservable = ObservableField<String>()
     val summaryPriceObservable = ObservableField<String>()
 
-    val colorObservable = ObservableInt()
+    val colorObservable = ObservableInt(R.color.gray)
     val detailViewVisibilityObservable = ObservableInt(View.GONE)
 
     override fun handleInput(viewData: ExpandableItemViewData?) {
