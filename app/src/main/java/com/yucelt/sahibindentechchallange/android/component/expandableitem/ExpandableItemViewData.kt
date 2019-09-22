@@ -8,8 +8,8 @@ data class ExpandableItemViewData(
     val month: String? = null,
     val marketName: String? = null,
     val orderName: String? = null,
-    val productPrice: Int? = null,
+    val productPrice: Double? = null,
     val productState: String? = null,
     val orderDetail: String? = null,
-    val summaryPrice: Int? = null
+    val summaryPrice: Double? = null
 )

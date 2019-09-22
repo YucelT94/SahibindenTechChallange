@@ -10,5 +10,5 @@ interface MyOrdersRepository {
     /**
      * Get my orders list datas
      */
-    fun getMyOrders(): Single<MyOrdersResponse>
+    fun getMyOrders(): Single<List<MyOrdersResponse>>
 }

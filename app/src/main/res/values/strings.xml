@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SahibindenTechChallange</string>
+    <string name="my_orders">Siparişlerim</string>
+    <string name="log_out">Çıkış Yap</string>
 </resources>

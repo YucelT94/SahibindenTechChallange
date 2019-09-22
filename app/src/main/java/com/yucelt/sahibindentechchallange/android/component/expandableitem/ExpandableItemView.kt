@@ -2,7 +2,11 @@ package com.yucelt.sahibindentechchallange.android.component.expandableitem
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
+import androidx.transition.*
 import com.yucelt.sahibindentechchallange.android.R
 import com.yucelt.sahibindentechchallange.android.base.basecomponent.BaseViewComponent
 import com.yucelt.sahibindentechchallange.android.databinding.ComponentExpandableItemBinding
@@ -54,20 +58,22 @@ class ExpandableItemView :
 
     private fun init() {
         dataBinding.run {
-            //     setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
+            setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
 
-            //     flowHorizontal.setOnClickListener {
-            //         val expanded = accounts.visibility != View.VISIBLE
-            //         this@ExpandableMyTotalView.viewModel.expandOrCollapse(expanded)
+            rootView.setOnClickListener {
+                val expanded = accounts.visibility != View.VISIBLE
+                this@ExpandableItemView.viewModel?.expandOrCollapse(expanded)
 
-            //         TransitionManager.beginDelayedTransition(accounts.rootView as ViewGroup, AutoTransition()
-            //             .setOrdering(TransitionSet.ORDERING_TOGETHER)
-            //             .addListener(object : TransitionListenerAdapter() {
-            //                 override fun onTransitionEnd(transition: Transition) {
-            //                     eventHandler?.onExpandedOrCollapsed(expanded)
-            //                 }
-            //             }))
-            //     }
+                TransitionManager.beginDelayedTransition(accounts.rootView as ViewGroup,
+                    AutoTransition()
+                        .setOrdering(TransitionSet.ORDERING_TOGETHER)
+                        .addListener(object : TransitionListenerAdapter() {
+                            override fun onTransitionEnd(transition: Transition) {
+                                eventHandler?.onExpandedOrCollapsed(expanded)
+                            }
+                        })
+                )
+            }
         }
     }
 }

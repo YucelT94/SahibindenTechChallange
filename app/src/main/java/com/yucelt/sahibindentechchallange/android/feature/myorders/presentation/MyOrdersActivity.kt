@@ -2,6 +2,7 @@ package com.yucelt.sahibindentechchallange.android.feature.myorders.presentation
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.yucelt.sahibindentechchallange.android.R
@@ -14,7 +15,9 @@ import javax.inject.Inject
  */
 class MyOrdersActivity : DaggerAppCompatActivity() {
 
-    private lateinit var activityMyOrdersBinding: ActivityMyOrdersBinding
+    private lateinit var binding: ActivityMyOrdersBinding
+    private var adapter: MyOrdersListAdapter? = null
+
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -29,9 +32,15 @@ class MyOrdersActivity : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        adapter = MyOrdersListAdapter()
 
-        activityMyOrdersBinding = DataBindingUtil.setContentView(this, R.layout.activity_my_orders)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_my_orders)
+        binding.myOrdersList.adapter = adapter
 
+        viewModel.adapterLiveData.observe(this@MyOrdersActivity, Observer {
+            adapter?.addData(it)
+        })
 
+        viewModel.generataAdapterData()
     }
 }

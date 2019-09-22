@@ -11,5 +11,9 @@
     <com.yucelt.sahibindentechchallange.android.component.expandableitem.ExpandableItemView
         viewData="@{item}"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="8dp" />
 </layout>

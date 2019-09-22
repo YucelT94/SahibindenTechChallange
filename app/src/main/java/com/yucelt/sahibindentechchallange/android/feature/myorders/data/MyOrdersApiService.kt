@@ -11,6 +11,6 @@ interface MyOrdersApiService {
     /**
      * Get my orders list
      */
-    @GET("")
-    fun getMyOrders(): Single<MyOrdersResponse>
+    @GET(".")
+    fun getMyOrders(): Single<List<MyOrdersResponse>>
 }

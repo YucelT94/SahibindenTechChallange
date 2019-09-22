@@ -10,9 +10,9 @@ import javax.inject.Inject
  * Created by YucelTerlemezoglu on 22.09.2019.
  */
 class MyOrdersUseCase @Inject constructor(private val repository: MyOrdersRepository) :
-    SingleUseCase<MyOrdersResponse>() {
+    SingleUseCase<List<MyOrdersResponse>>() {
 
-    override fun buildUseCaseSingle(): Single<MyOrdersResponse> {
+    override fun buildUseCaseSingle(): Single<List<MyOrdersResponse>> {
         return repository.getMyOrders()
     }
 }

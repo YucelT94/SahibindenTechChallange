@@ -2,6 +2,7 @@ package com.yucelt.sahibindentechchallange.android.feature.myorders.data.respons
 
 import com.google.gson.annotations.SerializedName
 import com.yucelt.sahibindentechchallange.android.base.network.BaseResponse
+import com.yucelt.sahibindentechchallange.android.component.expandableitem.ExpandableItemViewData
 
 /**
  * Created by YucelTerlemezoglu on 21.09.2019.
@@ -39,4 +40,15 @@ class MyOrdersResponse : BaseResponse() {
         @SerializedName("summaryPrice")
         val summaryPrice: Double? = null
     }
+
+    fun toExpandableItemViewData() = ExpandableItemViewData(
+        date,
+        month,
+        marketName,
+        orderName,
+        productPrice,
+        productState,
+        productDetail?.orderDetail,
+        productDetail?.summaryPrice
+    )
 }

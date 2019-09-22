@@ -13,5 +13,5 @@ class MyOrdersDataRepository(
     private val database: AppDatabase,
     private val service: MyOrdersApiService
 ) : MyOrdersRepository {
-    override fun getMyOrders(): Single<MyOrdersResponse> = service.getMyOrders()
+    override fun getMyOrders(): Single<List<MyOrdersResponse>> = service.getMyOrders()
 }

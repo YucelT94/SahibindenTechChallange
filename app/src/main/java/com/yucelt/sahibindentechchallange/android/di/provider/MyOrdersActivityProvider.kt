@@ -11,6 +11,6 @@ import dagger.android.ContributesAndroidInjector
 abstract class MyOrdersActivityProvider {
 
     @ContributesAndroidInjector
-    abstract fun provideAlbumsFragmentProvider(): MyOrdersActivity
+    abstract fun provideMyOrdersActivityProvider(): MyOrdersActivity
 
 }
