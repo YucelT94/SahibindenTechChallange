@@ -1,6 +1,9 @@
 package com.yucelt.sahibindentechchallange.android.base.room
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 
 /**
  * Created by YucelTerlemezoglu on 22.09.2019.
@@ -14,7 +17,6 @@ interface UserDao {
     @Query("SELECT * FROM User")
     fun getUser(): User
 
-    @Update
-    fun updateUser(photo: User)
-
+    @Query("UPDATE User SET rememberMe = :remember WHERE id = :id")
+    fun updateUser(id: Long, remember: Boolean): Int
 }

@@ -16,12 +16,16 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".feature.myorders.presentation.MyOrdersActivity">
+        <activity android:name=".feature.login.presentation.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".feature.myorders.presentation.MyOrdersActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

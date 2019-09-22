@@ -21,10 +21,10 @@ class MyOrdersListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val viewDatas: MutableList<ExpandableItemViewData> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val holderPhotoBinding = DataBindingUtil.inflate<ViewDataBinding>(
+        val holderBinding = DataBindingUtil.inflate<ViewDataBinding>(
             LayoutInflater.from(parent.context), R.layout.row_list_item, parent, false
         )
-        return MyOrdersItemViewHolder(holderPhotoBinding)
+        return MyOrdersItemViewHolder(holderBinding)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

@@ -1,5 +1,6 @@
 package com.yucelt.sahibindentechchallange.android.di.module
 
+import com.yucelt.sahibindentechchallange.android.feature.login.presentation.LoginActivity
 import com.yucelt.sahibindentechchallange.android.feature.myorders.presentation.MyOrdersActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -14,6 +15,6 @@ interface ActivityModule {
     @ContributesAndroidInjector
     fun myOrdersActivityInjector(): MyOrdersActivity
 
-    //TODO: Activity'leri ekle
-
+    @ContributesAndroidInjector
+    fun loginActivityInjector(): LoginActivity
 }

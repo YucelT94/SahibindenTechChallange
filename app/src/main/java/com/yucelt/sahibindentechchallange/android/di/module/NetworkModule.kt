@@ -5,6 +5,8 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import com.google.gson.Gson
 import com.yucelt.sahibindentechchallange.android.base.room.AppDatabase
+import com.yucelt.sahibindentechchallange.android.feature.login.data.repo.LoginDataRepository
+import com.yucelt.sahibindentechchallange.android.feature.login.domain.LoginRepository
 import com.yucelt.sahibindentechchallange.android.feature.myorders.data.MyOrdersApiService
 import com.yucelt.sahibindentechchallange.android.feature.myorders.data.repo.MyOrdersDataRepository
 import com.yucelt.sahibindentechchallange.android.feature.myorders.domain.MyOrdersRepository
@@ -43,7 +45,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun providesOkHttpClient(context: Context, isNetworkAvailable:Boolean): OkHttpClient {
+    fun providesOkHttpClient(context: Context, isNetworkAvailable: Boolean): OkHttpClient {
         val cacheSize = (5 * 1024 * 1024).toLong()
         val mCache = Cache(context.cacheDir, cacheSize)
         val interceptor = HttpLoggingInterceptor()
@@ -56,8 +58,14 @@ class NetworkModule {
             .addNetworkInterceptor(interceptor)
             .addInterceptor { chain ->
                 var request = chain.request()
-                request = if (isNetworkAvailable) request.newBuilder().header("Cache-Control", "public, max-age=" + 5).build()
-                else request.newBuilder().header("Cache-Control", "public, only-if-cached, max-stale=" + 60 * 60 * 24 * 7).build()
+                request = if (isNetworkAvailable) request.newBuilder().header(
+                    "Cache-Control",
+                    "public, max-age=" + 5
+                ).build()
+                else request.newBuilder().header(
+                    "Cache-Control",
+                    "public, only-if-cached, max-stale=" + 60 * 60 * 24 * 7
+                ).build()
                 chain.proceed(request)
             }
         return client.build()
@@ -85,7 +93,8 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideIsNetworkAvailable(context: Context): Boolean {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
         return activeNetwork != null && activeNetwork.isConnected
     }
@@ -96,7 +105,6 @@ class NetworkModule {
         return retrofit.create(MyOrdersApiService::class.java)
     }
 
-    // TODO: Servisleri ekle
     @Singleton
     @Provides
     fun provideMyOrdersRepository(
@@ -104,5 +112,13 @@ class NetworkModule {
         service: MyOrdersApiService
     ): MyOrdersRepository {
         return MyOrdersDataRepository(appDatabase, service)
+    }
+
+    @Singleton
+    @Provides
+    fun provideLoginRepository(
+        appDatabase: AppDatabase
+    ): LoginRepository {
+        return LoginDataRepository(appDatabase)
     }
 }

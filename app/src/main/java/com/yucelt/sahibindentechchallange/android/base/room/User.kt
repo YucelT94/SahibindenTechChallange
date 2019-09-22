@@ -10,5 +10,6 @@ import androidx.room.PrimaryKey
 data class User(
     @PrimaryKey var id: Long,
     var name: String,
-    var password: String
+    var password: String,
+    var rememberMe: Boolean
 )

@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="androidx.core.content.ContextCompat" />
+
         <variable
             name="viewModel"
             type="com.yucelt.sahibindentechchallange.android.component.expandableitem.ExpandableItemViewModel" />
@@ -74,7 +76,6 @@
                 android:id="@+id/order_section"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_marginStart="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/barrier"
@@ -106,9 +107,8 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:background="@{viewModel.colorObservable}"
-                    app:layout_constraintBottom_toBottomOf="@id/product_state"
                     app:layout_constraintLeft_toLeftOf="@id/order_name"
-                    app:layout_constraintTop_toTopOf="@id/product_state"
+                    app:layout_constraintTop_toBottomOf="@id/order_name"
                     tools:background="@color/colorAccent" />
 
                 <TextView
@@ -119,8 +119,9 @@
                     android:text="@{viewModel.productStateObservable}"
                     android:textColor="@{viewModel.colorObservable}"
                     android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/status"
                     app:layout_constraintLeft_toRightOf="@+id/status"
-                    app:layout_constraintTop_toBottomOf="@id/order_name"
+                    app:layout_constraintTop_toTopOf="@id/status"
                     tools:text="Hazırlanıyor"
                     tools:textColor="@color/colorAccent" />
 
@@ -151,19 +152,45 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@color/lightGray"
+            android:paddingLeft="70dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
             android:visibility="@{viewModel.detailViewVisibilityObservable}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/collapsed_section">
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/order_detail"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DENEME"
+                android:text="@{viewModel.orderDetailObservable}"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="250 ml sıvı sabun" />
+
+            <TextView
+                android:id="@+id/summary_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.summaryPriceObservable}"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="25 TL" />
+
+            <ImageView
+                android:id="@+id/barrier_detail"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/order_detail"
+                tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

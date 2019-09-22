@@ -22,7 +22,7 @@ enum class Month(val month: String){
     haziran("6"),
 
     @SerializedName("Temmuz")
-    yemmuz("7"),
+    temmuz("7"),
 
     @SerializedName("Ağustos")
     agustos("8"),

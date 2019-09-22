@@ -1,6 +1,8 @@
 package com.yucelt.sahibindentechchallange.android.component.expandableitem
 
+import android.content.Context
 import android.view.View
+import androidx.annotation.ColorRes
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
 import com.yucelt.sahibindentechchallange.android.R
@@ -33,7 +35,7 @@ class ExpandableItemViewModel : BaseComponentViewModel<ExpandableItemViewData>()
             productStateObservable.set(productState)
             orderDetailObservable.set(orderDetail)
             summaryPriceObservable.set("$summaryPrice TL")
-            colorObservable.set(setStatusColor(productState))
+            colorObservable.set(getStatusColor(productState))
         }
     }
 
@@ -42,13 +44,13 @@ class ExpandableItemViewModel : BaseComponentViewModel<ExpandableItemViewData>()
         else detailViewVisibilityObservable.set(View.GONE)
     }
 
-    private fun setStatusColor(productState: String?): Int {
+    @ColorRes
+    private fun getStatusColor(productState: String?): Int {
         return when {
             productState.equals("Hazırlanıyor") -> R.color.orange
             productState.equals("Onay Bekliyor") -> R.color.red
             productState.equals("Yolda") -> R.color.green
             else -> R.color.gray
         }
-
     }
 }
