@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            android:elevation="4dp"
+            android:elevation="@dimen/margin_xsmall"
             android:gravity="center"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:text="@string/my_market"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="@dimen/text_medium"
                 android:textStyle="bold" />
         </androidx.appcompat.widget.Toolbar>
 
@@ -65,7 +65,7 @@
                 android:id="@+id/my_orders_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
+                android:layout_margin="@dimen/margin_xsmall"
                 android:layout_weight="1"
                 android:background="@drawable/bordered_button"
                 android:text="@string/my_orders"
@@ -76,7 +76,7 @@
                 android:id="@+id/log_out_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
+                android:layout_margin="@dimen/margin_xsmall"
                 android:layout_weight="1"
                 android:background="@drawable/filled_button"
                 android:text="@string/log_out"

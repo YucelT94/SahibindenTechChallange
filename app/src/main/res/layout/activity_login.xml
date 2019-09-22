@@ -19,7 +19,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
+            android:padding="@dimen/margin_layout"
             tools:context=".feature.login.presentation.LoginActivity">
 
             <TextView
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/my_market"
                 android:textColor="@color/red"
-                android:textSize="32sp"
+                android:textSize="@dimen/text_large"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -38,7 +38,7 @@
                 android:id="@+id/user_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="@dimen/margin_xlarge"
                 android:hint="@string/user_name"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -48,7 +48,7 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/margin_small"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 app:layout_constraintLeft_toLeftOf="@id/user_name"
@@ -59,7 +59,7 @@
                 android:id="@+id/remember_me"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/margin_small"
                 app:layout_constraintLeft_toLeftOf="@id/password"
                 app:layout_constraintTop_toBottomOf="@id/password" />
 
@@ -67,9 +67,9 @@
                 android:id="@+id/remmember_me_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
+                android:layout_marginLeft="@dimen/margin_xsmall"
                 android:text="@string/remember_me"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_xsmall"
                 app:layout_constraintBottom_toBottomOf="@id/remember_me"
                 app:layout_constraintLeft_toRightOf="@id/remember_me"
                 app:layout_constraintTop_toTopOf="@id/remember_me" />
@@ -78,7 +78,7 @@
                 android:id="@+id/login_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="@dimen/margin_large"
                 android:background="@drawable/filled_button"
                 android:text="@string/login"
                 android:textColor="@color/white"
