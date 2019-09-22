@@ -1,10 +1,10 @@
 package com.yucelt.sahibindentechchallange.android.component.expandableitem
 
+import android.view.View
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
 import com.yucelt.sahibindentechchallange.android.R
 import com.yucelt.sahibindentechchallange.android.base.basecomponent.BaseComponentViewModel
-import com.yucelt.sahibindentechchallange.android.util.Month
 
 /**
  * Created by YucelTerlemezoglu on 21.09.2019.
@@ -21,7 +21,7 @@ class ExpandableItemViewModel : BaseComponentViewModel<ExpandableItemViewData>()
     val summaryPriceObservable = ObservableField<String>()
 
     val colorObservable = ObservableInt()
-    val detailViewVisibilityObservable = ObservableField<Boolean>(false)
+    val detailViewVisibilityObservable = ObservableInt(View.GONE)
 
     override fun handleInput(viewData: ExpandableItemViewData?) {
         viewData?.run {
@@ -38,7 +38,8 @@ class ExpandableItemViewModel : BaseComponentViewModel<ExpandableItemViewData>()
     }
 
     fun expandOrCollapse(expanded: Boolean) {
-        detailViewVisibilityObservable.set(expanded)
+        if (expanded) detailViewVisibilityObservable.set(View.VISIBLE)
+        else detailViewVisibilityObservable.set(View.GONE)
     }
 
     private fun setStatusColor(productState: String?): Int {

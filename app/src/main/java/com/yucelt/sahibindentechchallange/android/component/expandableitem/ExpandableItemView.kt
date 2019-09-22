@@ -10,6 +10,7 @@ import androidx.transition.*
 import com.yucelt.sahibindentechchallange.android.R
 import com.yucelt.sahibindentechchallange.android.base.basecomponent.BaseViewComponent
 import com.yucelt.sahibindentechchallange.android.databinding.ComponentExpandableItemBinding
+import kotlinx.android.synthetic.main.component_expandable_item.view.*
 
 /**
  * Created by YucelTerlemezoglu on 21.09.2019.
@@ -58,13 +59,11 @@ class ExpandableItemView :
 
     private fun init() {
         dataBinding.run {
-            setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
-
             rootView.setOnClickListener {
-                val expanded = accounts.visibility != View.VISIBLE
+                val expanded = detail_section.visibility != View.VISIBLE
                 this@ExpandableItemView.viewModel?.expandOrCollapse(expanded)
 
-                TransitionManager.beginDelayedTransition(accounts.rootView as ViewGroup,
+                TransitionManager.beginDelayedTransition(detail_section.rootView as ViewGroup,
                     AutoTransition()
                         .setOrdering(TransitionSet.ORDERING_TOGETHER)
                         .addListener(object : TransitionListenerAdapter() {

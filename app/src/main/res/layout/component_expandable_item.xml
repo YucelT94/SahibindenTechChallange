@@ -73,9 +73,9 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/order_section"
                 android:layout_width="wrap_content"
-                android:layout_marginStart="8dp"
-
                 android:layout_height="wrap_content"
+
+                android:layout_marginStart="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/barrier"
                 app:layout_constraintTop_toTopOf="parent"
@@ -144,6 +144,26 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/expand_label"
                 tools:text="25 TL" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detail_section"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/lightGray"
+            android:visibility="@{viewModel.detailViewVisibilityObservable}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/collapsed_section">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DENEME"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
