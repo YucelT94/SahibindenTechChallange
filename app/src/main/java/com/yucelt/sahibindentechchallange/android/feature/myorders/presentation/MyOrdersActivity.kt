@@ -79,6 +79,7 @@ class MyOrdersActivity : DaggerAppCompatActivity() {
     }
 
     private fun logOut() {
+        viewModel.logOut()
         startActivity(LoginActivity.newIntent(this@MyOrdersActivity))
     }
 }

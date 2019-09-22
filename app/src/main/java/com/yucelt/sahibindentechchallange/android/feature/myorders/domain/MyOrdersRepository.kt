@@ -11,4 +11,9 @@ interface MyOrdersRepository {
      * Get my orders list datas
      */
     fun getMyOrders(): Single<List<MyOrdersResponse>>
+
+    /**
+     * Update user at database
+     */
+    fun updateUser(id: Long, rememberMe: Boolean): Int
 }

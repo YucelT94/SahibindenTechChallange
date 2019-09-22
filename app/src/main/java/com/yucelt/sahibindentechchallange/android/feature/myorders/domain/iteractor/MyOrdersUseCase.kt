@@ -15,4 +15,6 @@ class MyOrdersUseCase @Inject constructor(private val repository: MyOrdersReposi
     override fun buildUseCaseSingle(): Single<List<MyOrdersResponse>> {
         return repository.getMyOrders()
     }
+
+    fun updateUser(id: Long, rememberMe: Boolean) = repository.updateUser(id, rememberMe)
 }

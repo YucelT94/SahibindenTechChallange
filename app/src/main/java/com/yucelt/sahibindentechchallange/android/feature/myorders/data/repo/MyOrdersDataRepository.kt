@@ -14,4 +14,7 @@ class MyOrdersDataRepository(
     private val service: MyOrdersApiService
 ) : MyOrdersRepository {
     override fun getMyOrders(): Single<List<MyOrdersResponse>> = service.getMyOrders()
+
+    override fun updateUser(id: Long, rememberMe: Boolean) =
+        database.userDao.updateUser(id, rememberMe)
 }

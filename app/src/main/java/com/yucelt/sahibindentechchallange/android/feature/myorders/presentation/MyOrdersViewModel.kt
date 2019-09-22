@@ -26,4 +26,8 @@ class MyOrdersViewModel
             }
         )
     }
+
+    fun logOut() {
+        useCase.updateUser(1, false)
+    }
 }
